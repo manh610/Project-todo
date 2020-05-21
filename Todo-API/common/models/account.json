@@ -1,0 +1,34 @@
+{
+    "name": "Account",
+    "base": "User",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "firstName": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "todos": {
+            "type": "hasMany",
+            "model": "Todo",
+            "foreignKey": ""
+        },
+        "accessTokens": {
+            "type": "hasMany",
+            "model": "AccessToken",
+            "foreignKey": "userId"
+        }
+    },
+    "acls": [{
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "find"
+    }],
+    "methods": {}
+}

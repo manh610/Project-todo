@@ -1,0 +1,28 @@
+{
+  "name": "TodoDetail",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Text": {
+      "type": "string",
+      "default": "No content"
+    },
+    "status": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "todo": {
+      "type": "belongsTo",
+      "model": "Todo",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

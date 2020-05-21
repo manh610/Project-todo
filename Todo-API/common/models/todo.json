@@ -1,0 +1,71 @@
+{
+  "name": "Todo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string",
+      "default": "SHJDHSFS"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "todoDetails": {
+      "type": "hasMany",
+      "model": "TodoDetail",
+      "foreignKey": ""
+    },
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {
+    "prototype.copy": {
+      "accepts": [
+        {
+          "arg": "ctx",
+          "type": "any",
+          "required": true,
+          "description": "context",
+          "http": {
+            "source": "context"
+          }
+        },
+        {
+          "arg": "customName",
+          "type": "string",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "newId",
+          "type": "string",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "copy",
+      "http": [
+        {
+          "path": "/copy",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}
